@@ -1,12 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
-    <!--servlet>
-        <servlet-name>BackwardCompatReporting</servlet-name>
-        <servlet-class>net.netheos.libraries.utils.servlet.RedirectHttp307Servlet</servlet-class>
+
+    <login-config>
+        <auth-method>CLIENT-CERT</auth-method>
+    </login-config>
+    <security-constraint>
+        <display-name>SSL</display-name>
+        <web-resource-collection>
+            <web-resource-name>SSL</web-resource-name>
+            <url-pattern>/ssl</url-pattern>
+        </web-resource-collection>
+        <user-data-constraint>
+            <transport-guarantee>INTEGRAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+    <security-constraint>
+        <display-name>MUTAUTH</display-name>
+        <web-resource-collection>
+            <web-resource-name>MUTAUTH</web-resource-name>
+            <url-pattern>/mutauth</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>AUTHENTICATED</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <servlet>
+        <servlet-name>Reflectlet</servlet-name>
+        <servlet-class>org.codeartisans.reflectlet.Reflectlet</servlet-class>
     </servlet>
+
     <servlet-mapping>
-        <servlet-name>BackwardCompatReporting</servlet-name>
-        <url-pattern>/reporting</url-pattern>
-    </servlet-mapping-->
-    
+        <servlet-name>Reflectlet</servlet-name>
+        <url-pattern>/normal</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Reflectlet</servlet-name>
+        <url-pattern>/ssl</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Reflectlet</servlet-name>
+        <url-pattern>/mutauth</url-pattern>
+    </servlet-mapping>
+
 </web-app>
