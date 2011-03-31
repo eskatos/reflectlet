@@ -5,3 +5,4 @@
 *.tmproj
 *.iml
 */target/*
+*/nb-configuration.xml
