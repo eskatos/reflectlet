@@ -39,15 +39,15 @@
 
     <servlet-mapping>
         <servlet-name>Reflectlet</servlet-name>
-        <url-pattern>/normal</url-pattern>
+        <url-pattern>/normal/*</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Reflectlet</servlet-name>
-        <url-pattern>/ssl</url-pattern>
+        <url-pattern>/ssl/*</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Reflectlet</servlet-name>
-        <url-pattern>/mutauth</url-pattern>
+        <url-pattern>/mutauth/*</url-pattern>
     </servlet-mapping>
 
 </web-app>
